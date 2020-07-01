@@ -8,9 +8,7 @@ export default function CreateTask() {
   const [taskName, setTaskName] = useState("");
   const [taskId, setTaskId] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const [taskImageUrl, setTaskImageUrl] = useState(
-    ''
-  );
+  const [taskImageUrl, setTaskImageUrl] = useState('');
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
 
@@ -19,6 +17,9 @@ export default function CreateTask() {
   const [taskIdWarning, setTaskIdWarning] = useState(false);
 
   const url = "https://bootcamp-6bf24.firebaseio.com/.json";
+
+
+  /// updates states using input data
 
   const inputHandler = (event) => {
     event.preventDefault();
@@ -34,13 +35,20 @@ export default function CreateTask() {
     setTaskIdWarning(false);
   };
 
+  /// handles image file
+
   const inputFileHandler = (event) => {
     if (event.target.files[0]) {
       setImage(event.target.files[0]);
     }
   };
 
-  console.log("image", image);
+  // console.log("image", image);
+
+  ///  checks whether the TaskId is entered before uploading the picture,
+  ///  uploads the image file to firebase storage,
+  ///  takes snapshot of the progress and renders in progress bar,
+  ///  updates the state of the image Url  
 
   const uploadHandler = (event) => {
     event.preventDefault();
@@ -71,6 +79,10 @@ export default function CreateTask() {
       );
     }
   };
+
+  /// checks whether all the inputs are entered before submitting
+
+
   const submitHandler = (event) => {
     setWarning(false);
     event.preventDefault();
@@ -82,6 +94,8 @@ export default function CreateTask() {
       setRedirect(true);
     }
   };
+
+  /// posts data to firebase realtime database
 
   async function postData() {
     axios

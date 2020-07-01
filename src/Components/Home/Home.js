@@ -6,11 +6,14 @@ export default function Home() {
   const [taskData, setTaskData] = useState("");
   const url = "https://bootcamp-6bf24.firebaseio.com/.json";
 
+  
   const [showDescription, setShowDescription] = useState(false);
 
   useEffect(() => {
     getData();
   }, []);
+
+  /// retrieves data from firebase realtime database
 
   async function getData() {
     axios(url).then((response) => {
@@ -18,6 +21,9 @@ export default function Home() {
       setTaskData(response.data);
     });
   }
+
+
+
   return (
     <div className="home">
       <h1>Tasks</h1>
@@ -31,9 +37,7 @@ export default function Home() {
                 <p>
                   Task Name: <span>{taskData[task].taskName}</span>
                 </p>
-                <img
-                  src={taskData[task].taskImageUrl}
-                />
+                <img src={taskData[task].taskImageUrl} />
               </div>
               <div className="description">
                 <button
@@ -47,6 +51,10 @@ export default function Home() {
                   <p>{taskData[task].taskDescription}</p>
                 ) : null}
               </div>
+
+              {/* genarating random numbers as submissions, 
+              this to be replace with students actual submissions */}
+
               <div className="submits">
                 Submits : {Math.floor(Math.random() * 5) + 1}
               </div>

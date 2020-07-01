@@ -10,6 +10,10 @@ export default function Login() {
         event.preventDefault();
         setRedirect(true);
     }
+
+    ///    login is NOT authenticated
+    ///    student path is not created 
+
     return (
         <div className='login-page'>
             <div className='container'>

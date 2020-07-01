@@ -12,6 +12,9 @@ export default function Score() {
     getUserData();
   });
 
+
+  /// Handles ratings
+
   const rateHandler = (event) => {
     event.preventDefault();
     const rating = prompt("Rate the user on a scale of 1 to 10");
@@ -19,6 +22,9 @@ export default function Score() {
     let user = event.currentTarget.id;
     postUserRating(task, user, rating);
   };
+
+  /// posts ratings data to firebase realtime database
+
   async function postUserRating(task, user, rating) {
     axios
       .post(`https://bootcamp-6bf24.firebaseio.com/${task}/ratings.json`, {
@@ -29,6 +35,9 @@ export default function Score() {
         console.log(response);
       });
   }
+
+  ///  retrieves data from firebase realtime database
+
   async function getData() {
     axios(url).then((response) => {
     //   console.log(response.data);
@@ -42,6 +51,7 @@ export default function Score() {
     });
   }
 
+  
   return (
     <div className="scores">
       {Object.keys(taskData).map((task) => {
