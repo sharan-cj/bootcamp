@@ -7,20 +7,26 @@ export default function Score() {
   const [userData, setUserData] = useState("");
   const url = "https://bootcamp-6bf24.firebaseio.com/.json";
 
+  const [update, setUpdate] = useState(false);
+
   useEffect(() => {
     getData();
     getUserData();
-  });
+  },[update]);
 
 
   /// Handles ratings
 
   const rateHandler = (event) => {
     event.preventDefault();
+    setUpdate(false);
     const rating = prompt("Rate the user on a scale of 1 to 10");
     let task = event.currentTarget.parentNode.parentNode.id;
     let user = event.currentTarget.id;
-    postUserRating(task, user, rating);
+    if(rating !== ''){
+      postUserRating(task, user, rating);
+    }
+    
   };
 
   /// posts ratings data to firebase realtime database
@@ -33,6 +39,8 @@ export default function Score() {
       })
       .then((response) => {
         console.log(response);
+      }).then(()=>{
+        setUpdate(true);
       });
   }
 

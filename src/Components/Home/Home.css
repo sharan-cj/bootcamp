@@ -1,5 +1,6 @@
 .home {
     background: var(--secondary-bg-color);
+    height: 100vh;
 }
 .home h1 {
     color: var(--secondary-font-color);
@@ -12,6 +13,7 @@
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    background: var(--secondary-bg-color);
 }
 
 .task-card {

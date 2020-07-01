@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   /// retrieves data from firebase realtime database
 
