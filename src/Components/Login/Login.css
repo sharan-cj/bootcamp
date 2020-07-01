@@ -1,0 +1,54 @@
+.login-page {
+    background: var(--secondary-bg-color); 
+    background-image: url('../../images/sakura.png');
+    height: 100vh; 
+      
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container {
+    background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)); 
+    max-width: 800px;
+    border: 1px solid #d5cff7;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px grey;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+
+.container h1 {
+    margin: 0 2rem;
+    padding-top: 3rem;
+    margin-bottom: 3rem;
+    color: var(--secondary-font-color);
+    
+}
+
+.container h2 {
+    color: #e29578;
+}
+
+.login button {
+    background: var(--primary-bg-color);
+    color: var(--primary-font-color);
+    margin: 1rem;
+    padding: 1em;
+    width: 120px;
+    font-weight: 600;
+    border: 1px outset black;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
